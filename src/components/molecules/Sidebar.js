@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faListUl, faTasks } from "@fortawesome/free-solid-svg-icons";
@@ -41,6 +42,14 @@ const Sidebar = ({ cardContext }) => {
       </StyledButtonIcon>
     </StyledWrapper>
   );
+};
+
+Sidebar.propTypes = {
+  cardContext: PropTypes.oneOf(["todo", "done"])
+};
+
+Sidebar.defaultProps = {
+  cardContext: "todo"
 };
 
 export default withContext(Sidebar);
