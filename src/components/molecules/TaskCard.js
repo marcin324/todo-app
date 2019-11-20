@@ -11,6 +11,7 @@ import {
   removeTask as removeTaskAction,
   changeTaskStatus as changeTaskStatusAction
 } from "../../actions/actions";
+import withContext from '../../hoc/withContext';
 
 const StyledWrapper = styled.div`
   min-height: 300px;
@@ -71,7 +72,7 @@ const StyledDateInfo = styled.div`
 `;
 
 const TaskCard = ({
-  cardType,
+  cardContext,
   title,
   deadline,
   important,
@@ -82,16 +83,16 @@ const TaskCard = ({
 }) => {
   return (
     <StyledWrapper>
-      <InnerWrapper colored activeColor={cardType}>
+      <InnerWrapper colored activeColor={cardContext}>
         <StyledHeading>
-          {cardType === "todo" && `Zadanie do zrobienia`}
+          {cardContext === "todo" && `Zadanie do zrobienia`}
           {important && (
             <FontAwesomeIcon
               icon={faExclamationTriangle}
               color="red"
             />
           )}
-          {cardType === "done" && `Zadanie wykonane`}
+          {cardContext === "done" && `Zadanie wykonane`}
         </StyledHeading>
       </InnerWrapper>
       <InnerWrapper flex>
@@ -103,15 +104,15 @@ const TaskCard = ({
             {`termin: ${deadline}`}
           </Paragraph>
           <Paragraph>
-            {cardType === "done" && `wykonano: ${finishDate}`}
+            {cardContext === "done" && `wykonano: ${finishDate}`}
           </Paragraph>
         </StyledDateInfo>
         <ButtonWrapper>
-          <Button secondary onClick={() => removeTask(cardType, id)}>
+          <Button secondary onClick={() => removeTask(cardContext, id)}>
             Usuń
           </Button>
-          {cardType === "todo" && (
-            <Button tertiary onClick={() => changeTaskStatus(cardType, id)}>
+          {cardContext === "todo" && (
+            <Button tertiary onClick={() => changeTaskStatus(cardContext, id)}>
               Zrobione
             </Button>
           )}
@@ -122,11 +123,11 @@ const TaskCard = ({
 };
 
 TaskCard.propTypes = {
-  cardType: PropTypes.oneOf(["todo", "done"])
+  cardContext: PropTypes.oneOf(["todo", "done"])
 };
 
 TaskCard.defaultProps = {
-  cardType: "todo"
+  cardContext: "todo"
 };
 
 const mapDispatchToProps = dispatch => ({
@@ -138,4 +139,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   null,
   mapDispatchToProps
-)(TaskCard);
+)(withContext(TaskCard));
