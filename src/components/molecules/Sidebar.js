@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faListUl, faTasks } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom";
 import ButtonIcon from "../atoms/ButtonIcon";
+import withContext from "../../hoc/withContext";
 
 const StyledWrapper = styled.div`
   position: fixed;
@@ -29,9 +30,9 @@ const StyledButtonIcon = styled(ButtonIcon)`
   font-size: ${({ theme }) => theme.fontSize.xl};
 `;
 
-const Sidebar = ({ cardType }) => {
+const Sidebar = ({ cardContext }) => {
   return (
-    <StyledWrapper activeColor={cardType}>
+    <StyledWrapper activeColor={cardContext}>
       <StyledButtonIcon as={NavLink} to="/todo" activeclass="active">
         <FontAwesomeIcon icon={faListUl} />
       </StyledButtonIcon>
@@ -42,4 +43,4 @@ const Sidebar = ({ cardType }) => {
   );
 };
 
-export default Sidebar;
+export default withContext(Sidebar);
