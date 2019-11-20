@@ -119,14 +119,6 @@ const mapStateToProps = state => ({
   deadline: state.formReducer.date
 });
 
-NewItemForm.propTypes = {
-  cardType: PropTypes.oneOf(["todo", "done"])
-};
-
-NewItemForm.defaultProps = {
-  cardType: "todo"
-};
-
 export default connect(
   mapStateToProps,
   mapDispatchToProps
