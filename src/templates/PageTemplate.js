@@ -9,6 +9,7 @@ import Heading from "../components/atoms/Heading";
 import Paragraph from "../components/atoms/Paragraph";
 import ButtonIcon from "../components/atoms/ButtonIcon";
 import NewItemForm from "../components/molecules/NewItemForm";
+import withContext from "../hoc/withContext";
 
 const StyledGrid = styled.div`
   display: grid;
@@ -64,25 +65,25 @@ class PageTemplate extends Component {
   };
 
   render() {
-    const { children, cardType, todo } = this.props;
+    const { children, cardContext, todo } = this.props;
     const { isNewItemFormVisible } = this.state;
 
     return (
       <>
-        <Sidebar cardType={cardType} />
+        <Sidebar />
 
         <StyledPageHeader>
           <StyledHeading big as="h1">
-            {cardType === "todo" && `Twoje zadania czekające na realizację`}
-            {cardType === "done" && `Zadania zrealizowane`}
+            {cardContext === "todo" && `Twoje zadania czekające na realizację`}
+            {cardContext === "done" && `Zadania zrealizowane`}
           </StyledHeading>
           <StyledParagraph>
-            {cardType === "todo" && `liczba zadań: ${todo.length}`}
+            {cardContext === "todo" && `liczba zadań: ${todo.length}`}
           </StyledParagraph>
         </StyledPageHeader>
 
         <StyledGrid>{children}</StyledGrid>
-        {cardType === "todo" && (
+        {cardContext === "todo" && (
           <StyledButtonIcon onClick={this.handleNewItemFormToggle}>
             <FontAwesomeIcon icon={faPlus} />
           </StyledButtonIcon>
@@ -95,15 +96,15 @@ class PageTemplate extends Component {
 
 PageTemplate.propTypes = {
   children: PropTypes.array.isRequired,
-  cardType: PropTypes.oneOf(["todo", "done"])
+  cardContext: PropTypes.oneOf(["todo", "done"])
 };
 
 PageTemplate.defaultProps = {
-  cardType: "todo"
+  cardContext: "todo"
 };
 
 const mapStateToProps = state => ({
   todo: state.taskReducer.todo
 });
 
-export default connect(mapStateToProps)(PageTemplate);
+export default connect(mapStateToProps)(withContext(PageTemplate));
