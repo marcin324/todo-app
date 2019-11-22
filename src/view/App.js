@@ -3,8 +3,8 @@ import {
   BrowserRouter,
   Switch,
   Route,
-  Redirect,
-  HashRouter
+  Redirect
+  // HashRouter
 } from "react-router-dom";
 import Todo from "./Todo";
 import Done from "./Done";
@@ -13,7 +13,7 @@ import MainTemplate from "../templates/MainTemplate";
 const App = () => {
   return (
     <div>
-      <HashRouter basename={process.env.PUBLIC_URL}>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <MainTemplate>
           <Switch>
             <Route exact path="/" render={() => <Redirect to="/todo" />} />
@@ -21,7 +21,7 @@ const App = () => {
             <Route path="/done" component={Done} />
           </Switch>
         </MainTemplate>
-      </HashRouter>
+      </BrowserRouter>
     </div>
   );
 };
