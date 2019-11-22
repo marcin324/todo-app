@@ -11,7 +11,7 @@ const App = () => {
         <MainTemplate>
           <Switch>
             <Route exact path="/" render={() => <Redirect to="/todo" />} />
-            <Route path="/todo" component={() => Todo} />
+            <Route path="/todo" component={Todo} />
             <Route path="/done" component={Done} />
           </Switch>
         </MainTemplate>
