@@ -14,7 +14,7 @@ const App = () => {
   return (
     <div>
       <BrowserRouter
-        basename="todo_app" /* basename={process.env.PUBLIC_URL} */
+        basename="/todo_app" /* basename={process.env.PUBLIC_URL} */
       >
         <MainTemplate>
           <Switch>
