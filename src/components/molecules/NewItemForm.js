@@ -7,7 +7,6 @@ import {
   updateDateForm as updateDateFormAction,
   addTask as addTaskAction
 } from "../../actions/actions";
-import PropTypes from "prop-types";
 import Input from "../atoms/Input";
 import Button from "../atoms/Button";
 import Heading from "../atoms/Heading";
