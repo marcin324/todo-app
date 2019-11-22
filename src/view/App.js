@@ -13,7 +13,9 @@ import MainTemplate from "../templates/MainTemplate";
 const App = () => {
   return (
     <div>
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <BrowserRouter
+        basename="todo_app" /* basename={process.env.PUBLIC_URL} */
+      >
         <MainTemplate>
           <Switch>
             <Route exact path="/" render={() => <Redirect to="/todo" />} />
