@@ -8,7 +8,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <BrowserRouter basename="todo_app">
+        <BrowserRouter basename="/todo_app">
           <MainTemplate>
             <Switch>
               <Route exact path="/" render={() => <Redirect to="/todo" />} />
