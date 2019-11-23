@@ -1,6 +1,6 @@
 {
   "homepage": "https://marcin324.github.io/todo-app/",
-  "name": "lifestyle_app",
+  "name": "todo-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
