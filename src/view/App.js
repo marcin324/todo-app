@@ -26,6 +26,7 @@ const App = () => {
               <Route exact path="/" render={() => <Redirect to="/todo" />} />
               <Route path="/todo" component={Todo} />
               <Route path="/done" component={Done} />
+              <Route component={() => <div>404 Not found </div>} />
             </Switch>
           </MainTemplate>
         </BrowserRouter>
