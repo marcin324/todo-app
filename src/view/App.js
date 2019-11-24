@@ -20,7 +20,7 @@ const App = () => {
   return (
     <div>
       <Provider store={store}>
-        <BrowserRouter history={history} basename="/todo_app">
+        <BrowserRouter history={history} basename={process.env.PUBLIC_URL}>
           <MainTemplate>
             <Switch>
               <Route exact path="/" render={() => <Redirect to="/todo" />} />
