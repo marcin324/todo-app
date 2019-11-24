@@ -1,4 +1,4 @@
-import { createBrowserHistory } from "history";
+// import { createBrowserHistory } from "history";
 import { applyMiddleware, /* compose, */ createStore } from "redux";
 import { routerMiddleware } from "connected-react-router";
 import { composeWithDevTools } from "redux-devtools-extension";
@@ -17,9 +17,9 @@ const initialState = {
   done: []
 };
 
-export const history = createBrowserHistory({
-  basename: process.env.PUBLIC_URL
-});
+// export const history = createBrowserHistory({
+//   basename: process.env.PUBLIC_URL
+// });
 
 export default function configureStore({ history }) {
   const composeEnhancer = composeWithDevTools({});
