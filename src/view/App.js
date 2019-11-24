@@ -20,13 +20,12 @@ const App = () => {
   return (
     <div>
       <Provider store={store}>
-        <BrowserRouter history={history} basename={process.env.PUBLIC_URL}>
+        <BrowserRouter history={history} basename="/todo_app">
           <MainTemplate>
             <Switch>
               <Route exact path="/" render={() => <Redirect to="/todo" />} />
               <Route path="/todo" component={Todo} />
               <Route path="/done" component={Done} />
-              <Route component={() => <div>404 Not found </div>} />
             </Switch>
           </MainTemplate>
         </BrowserRouter>
