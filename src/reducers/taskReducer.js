@@ -1,6 +1,6 @@
 import { REMOVE_TASK, ADD_TASK, CHANGE_TASK_STATUS } from "../actions/actions";
 
-const initialState = {
+export const initialState = {
   todo: [
     {
       id: 0,
