@@ -1,6 +1,6 @@
 export const theme = {
   todo: "#F8C61A",
-  done: "#1AA3E9",
+  done: "#56CF47",
   grey100: "hsl(0, 0%, 96%)",
   grey200: "hsl(0, 0%, 90%)",
   grey300: "hsl(0, 0%, 50%)",
