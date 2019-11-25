@@ -1,5 +1,5 @@
 ## General info
-This is simple application to create todo list
+This is simple application to create todo list.
 
 ## Technologies
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -21,4 +21,4 @@ $ npm start
 ```
 
 ## Sources
-This app is based on "React w praktyce" course on [Eduweb.pl](https://eduweb.pl) by Adam Romański.
+This app is inspired on "React w praktyce" course on [Eduweb.pl](https://eduweb.pl) by Adam Romański.
