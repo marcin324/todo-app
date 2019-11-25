@@ -21,4 +21,4 @@ $ npm start
 ```
 
 ## Sources
-This app is inspired on "React w praktyce" course on [Eduweb.pl](https://eduweb.pl) by Adam Romański.
+This app is inspired by "React w praktyce" course on [Eduweb.pl](https://eduweb.pl) by Adam Romański.
