@@ -16,6 +16,20 @@ const StyledGrid = styled.div`
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 100px;
   padding: 50px 100px;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 70px;
+  }
+
+  @media (max-width: 1100px) {
+    grid-template-columns: 1fr;
+    padding: 50px 150px;
+  }
+
+  @media (max-width: 1100px) {
+    padding: 50px 100px;
+  }
 `;
 
 const StyledPageHeader = styled.div`
