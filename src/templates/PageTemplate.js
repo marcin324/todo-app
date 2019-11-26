@@ -27,7 +27,7 @@ const StyledGrid = styled.div`
     padding: 50px 150px;
   }
 
-  @media (max-width: 1100px) {
+  @media (max-width: 850px) {
     padding: 50px 100px;
   }
 `;
