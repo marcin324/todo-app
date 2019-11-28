@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import {
   updateTextForm as updateTextFormAction,
@@ -104,6 +105,21 @@ const NewItemForm = ({
   );
 };
 
+NewItemForm.propTypes = {
+  isVisible: PropTypes.bool,
+  updateCheckedForm: PropTypes.func.isRequired,
+  updateTextForm: PropTypes.func.isRequired,
+  updateDateForm: PropTypes.func.isRequired,
+  addTask: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  deadline: PropTypes.string.isRequired,
+  important: PropTypes.bool.isRequired
+};
+
+NewItemForm.defaultProps = {
+  isVisible: false
+};
+
 const mapDispatchToProps = dispatch => ({
   updateTextForm: text => dispatch(updateTextFormAction(text)),
   updateCheckedForm: checked => dispatch(updateCheckedFormAction(checked)),
@@ -118,7 +134,4 @@ const mapStateToProps = state => ({
   deadline: state.formReducer.date
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(NewItemForm);
+export default connect(mapStateToProps, mapDispatchToProps)(NewItemForm);

@@ -18,10 +18,9 @@ const Done = ({ done }) => {
 
   return (
     <>
-      <PageTemplate cardType="done">
+      <PageTemplate>
         {done.map(item => (
           <TaskCard
-            cardType="done"
             id={item.id}
             key={item.id}
             title={item.title}

@@ -11,7 +11,7 @@ import {
   removeTask as removeTaskAction,
   changeTaskStatus as changeTaskStatusAction
 } from "../../actions/actions";
-import withContext from '../../hoc/withContext';
+import withContext from "../../hoc/withContext";
 
 const StyledWrapper = styled.div`
   min-height: 300px;
@@ -87,22 +87,15 @@ const TaskCard = ({
         <StyledHeading>
           {cardContext === "todo" && `Zadanie do zrobienia`}
           {important && (
-            <FontAwesomeIcon
-              icon={faExclamationTriangle}
-              color="red"
-            />
+            <FontAwesomeIcon icon={faExclamationTriangle} color="red" />
           )}
           {cardContext === "done" && `Zadanie wykonane`}
         </StyledHeading>
       </InnerWrapper>
       <InnerWrapper flex>
-        <StyledParagraph isImportant={important}>
-          {title}
-        </StyledParagraph>
+        <StyledParagraph isImportant={important}>{title}</StyledParagraph>
         <StyledDateInfo>
-          <Paragraph>
-            {`termin: ${deadline}`}
-          </Paragraph>
+          <Paragraph>{`termin: ${deadline}`}</Paragraph>
           <Paragraph>
             {cardContext === "done" && `wykonano: ${finishDate}`}
           </Paragraph>
@@ -123,11 +116,21 @@ const TaskCard = ({
 };
 
 TaskCard.propTypes = {
-  cardContext: PropTypes.oneOf(["todo", "done"])
+  cardContext: PropTypes.oneOf(["todo", "done"]),
+  title: PropTypes.string.isRequired,
+  deadline: PropTypes.string.isRequired,
+  important: PropTypes.bool,
+  finishDate: PropTypes.string,
+  id: PropTypes.string.isRequired,
+  removeTask: PropTypes.func.isRequired,
+  changeTaskStatus: PropTypes.func
 };
 
 TaskCard.defaultProps = {
-  cardContext: "todo"
+  cardContext: "todo",
+  important: undefined,
+  finishDate: null,
+  changeTaskStatus: undefined
 };
 
 const mapDispatchToProps = dispatch => ({
@@ -136,7 +139,4 @@ const mapDispatchToProps = dispatch => ({
     dispatch(changeTaskStatusAction(itemType, id))
 });
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(withContext(TaskCard));
+export default connect(null, mapDispatchToProps)(withContext(TaskCard));

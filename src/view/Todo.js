@@ -18,10 +18,9 @@ const Todo = ({ todo }) => {
 
   return (
     <>
-      <PageTemplate cardType="todo">
+      <PageTemplate>
         {todo.map(item => (
           <TaskCard
-            cardType="todo"
             id={item.id}
             key={item.id}
             title={item.title}

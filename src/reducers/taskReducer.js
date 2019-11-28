@@ -3,7 +3,7 @@ import { REMOVE_TASK, ADD_TASK, CHANGE_TASK_STATUS } from "../actions/actions";
 export const initialState = {
   todo: [
     {
-      id: 0,
+      id: "0",
       title: `Zdobyć pierwszą pracę jako frontend developer`,
       deadline: `2020-01-01`,
       important: true,
